@@ -11,6 +11,15 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            PersonModel person = new PersonModel();
+            person.FirstName = "Jose";
+            person.LastName = "Horta";
+            person.Age = 39;
+            person.SSN = "987-45-1236";
+
+            Console.WriteLine(person.SSN);
+
+
             Console.ReadLine();
         }
     }

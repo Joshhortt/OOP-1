@@ -8,7 +8,7 @@ namespace ConsoleUI
 {
     public class PersonModel
     {
-		public int FirstName { get; set; }
+		public string FirstName { get; set; }
 		public string LastName { get; set; }
 		//public int Age { get; set; }
 
@@ -42,9 +42,9 @@ namespace ConsoleUI
 		public string SSN
 		{
 			get 
-			{   // 123-45-6789  (11 - 5 = 6)  It's '-'
-				string output = "***-**-" + _ssn.Substring(_ssn.Length - 5);
-				return _ssn; 
+			{   // 123-45-6789  (11 - 4 = 7)
+				string output = "***-**-" + _ssn.Substring(_ssn.Length - 4);  // Shows only the last 4 digits
+				return output;
 			}
 			set 
 			{ 
