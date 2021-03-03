@@ -12,6 +12,7 @@ namespace ConsoleUI
 		public string LastName { get; set; }
 		//public int Age { get; set; }
 
+//******************************** Why and when use full properties *******************************
 
 	//  the code below is the equivalent as the commented line property of 'Age'.
 		private int _age; // private backing field of creating variables (underscore + camelCase)
@@ -34,6 +35,21 @@ namespace ConsoleUI
 				}
 			}
 		}
+		// public string SSN { get; set; }  // social security number 123-45-6789
 
+		private string _ssn;
+
+		public string SSN
+		{
+			get 
+			{   // 123-45-6789  (11 - 5 = 6)  It's '-'
+				string output = "***-**-" + _ssn.Substring(_ssn.Length - 5);
+				return _ssn; 
+			}
+			set 
+			{ 
+				_ssn = value; 
+			}
+		}
 	}
 }
