@@ -8,8 +8,18 @@ namespace ConsoleUI
 {
     public class PersonModel
     {
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
+		public string FirstName { private get; set; }
+		public string LastName { get; private set; }
+
+		
+		public string FullName
+		{
+			get
+			{
+				return $"{  FirstName} { LastName}";
+			}
+		}
+
 		//public int Age { get; set; }
 
 //******************************** Why and when use full properties *******************************
@@ -17,7 +27,7 @@ namespace ConsoleUI
 	//  the code below is the equivalent as the commented line property of 'Age'.
 		private int _age; // private backing field of creating variables (underscore + camelCase)
 
-			public int Age
+		public int Age
 		{
 			get 
 			{
@@ -38,7 +48,7 @@ namespace ConsoleUI
 		// public string SSN { get; set; }  // social security number 123-45-6789
 
 		private string _ssn;
-
+		
 		public string SSN
 		{
 			get 
@@ -51,5 +61,12 @@ namespace ConsoleUI
 				_ssn = value; 
 			}
 		}
+
+		public PersonModel(string lastName)  // Especial type of Method called Constructor with 1 parameter (ctor + tab + tab).
+		{                                   //  Same name that the class
+			LastName = lastName;
+		}
+
+
 	}
 }
