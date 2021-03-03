@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Object Oriented Programming - part 1 - Static Classes
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
