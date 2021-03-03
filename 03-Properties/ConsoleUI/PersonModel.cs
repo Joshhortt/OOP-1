@@ -8,6 +8,8 @@ namespace ConsoleUI
 {
     public class PersonModel
     {
-       
-    }
+		public int FirstName { get; set; }
+		public string LastName { get; set; }
+		public int Age { get; set; }
+	}
 }
