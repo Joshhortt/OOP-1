@@ -43,6 +43,11 @@ namespace ConsoleUI
 
             } while (moreGuestsArriving.ToLower() == "yes");
 
+            foreach(GuestModel guest in guests)
+			{
+				Console.WriteLine(guest.GuestInfo);
+			}
+
             Console.ReadLine();
         }
     }
