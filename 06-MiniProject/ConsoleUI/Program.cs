@@ -42,23 +42,27 @@ namespace ConsoleUI
 			{
 				GuestModel guest = new GuestModel();
 
-				Console.WriteLine("What is your first name: ");
-				guest.FirstName = Console.ReadLine();
-
-				Console.WriteLine("What is your last name: ");
-				guest.LastName = Console.ReadLine();
-
-				Console.Write("What message would you like to say your host: ");
-				guest.MessageToHost = Console.ReadLine();
-
-				Console.Write("Are more guests coming (yes/no): ");
-				moreGuestsArriving = Console.ReadLine();
+				// Refactor more by changing Console.Writeline / Console.ReadLine to private method we created below
+				guest.FirstName = GetInfoFromConsole("What is your first name: ");
+				//GetInfoFromConsole("What is your last name: ");
+				//guest.LastName = Console.ReadLine();
+				guest.LastName = GetInfoFromConsole("What is your last name: ");
+				guest.MessageToHost = GetInfoFromConsole("What message would you like to say your host: ");
+				moreGuestsArriving = GetInfoFromConsole("Are more guests coming (yes/no): ");
 
 				guests.Add(guest); 
 
 				Console.Clear();
 
 			} while (moreGuestsArriving.ToLower() == "yes");
+		}
+		private static string GetInfoFromConsole(string message)
+		{
+			string output = "";
+			Console.Write(message);
+			output = Console.ReadLine();
+
+			return output;
 		}
     }
  }
