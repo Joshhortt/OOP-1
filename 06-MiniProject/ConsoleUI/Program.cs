@@ -19,19 +19,20 @@ namespace ConsoleUI
 
 		static void Main(string[] args)
         {
-            //List<GuestModel> guests = new List<GuestModel>();  move outside of Main method so that 'guests' in Line 56 has access
-
             GetGuestInformation();
 
-			foreach (GuestModel guest in guests)
-			{
-				Console.WriteLine(guest.GuestInfo);
-			}
+			PrintGuestInformation(); // Calling new method
 
 			Console.ReadLine();
         }
 
-        // REFACTOR CODE
+		private static void PrintGuestInformation()  // New method
+		{
+			foreach (GuestModel guest in guests)
+			{
+				Console.WriteLine(guest.GuestInfo);
+			}
+		}
 
         public static void GetGuestInformation()
 		{
@@ -53,7 +54,7 @@ namespace ConsoleUI
 				Console.Write("Are more guests coming (yes/no): ");
 				moreGuestsArriving = Console.ReadLine();
 
-				guests.Add(guest);  // Has access again when we move the instanciated List outside Main method
+				guests.Add(guest); 
 
 				Console.Clear();
 
