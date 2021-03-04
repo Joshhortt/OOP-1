@@ -15,41 +15,50 @@ namespace ConsoleUI
 {
     class Program
     {
-        static void Main(string[] args)
+		private static List<GuestModel> guests = new List<GuestModel>();
+
+		static void Main(string[] args)
         {
-            List<GuestModel> guests = new List<GuestModel>(); // The List that holds our guests
-            string moreGuestsArriving = "";
+            //List<GuestModel> guests = new List<GuestModel>();  move outside of Main method so that 'guests' in Line 56 has access
 
-            // do while Loop through each guest
-            do
-            {
-                GuestModel guest = new GuestModel();
+            GetGuestInformation();
 
-				Console.WriteLine("What is your first name: ");
-                guest.FirstName = Console.ReadLine();
-
-                Console.WriteLine("What is your last name: ");
-                guest.LastName = Console.ReadLine();
-
-				Console.Write("What message would you like to say your host: ");
-                guest.MessageToHost = Console.ReadLine();
-
-                Console.Write("Are more guests coming (yes/no): ");
-				moreGuestsArriving = Console.ReadLine();
-
-                guests.Add(guest);
-
-                Console.Clear();
-
-            } while (moreGuestsArriving.ToLower() == "yes");
-
-            foreach(GuestModel guest in guests)
+			foreach (GuestModel guest in guests)
 			{
 				Console.WriteLine(guest.GuestInfo);
 			}
 
-            Console.ReadLine();
+			Console.ReadLine();
         }
+
+        // REFACTOR CODE
+
+        public static void GetGuestInformation()
+		{
+			string moreGuestsArriving = "";
+
+			do
+			{
+				GuestModel guest = new GuestModel();
+
+				Console.WriteLine("What is your first name: ");
+				guest.FirstName = Console.ReadLine();
+
+				Console.WriteLine("What is your last name: ");
+				guest.LastName = Console.ReadLine();
+
+				Console.Write("What message would you like to say your host: ");
+				guest.MessageToHost = Console.ReadLine();
+
+				Console.Write("Are more guests coming (yes/no): ");
+				moreGuestsArriving = Console.ReadLine();
+
+				guests.Add(guest);  // Has access again when we move the instanciated List outside Main method
+
+				Console.Clear();
+
+			} while (moreGuestsArriving.ToLower() == "yes");
+		}
     }
  }
 
