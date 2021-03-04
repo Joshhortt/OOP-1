@@ -17,8 +17,18 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            List<GuestModel> guests = new List<GuestModel>(); // The List that holds our guests
+            string moreGuestsArriving = "";
 
-            List<GuestModel> guests = new List<GuestModel>();
+            // do while Loop through each guest
+            do
+            {
+                GuestModel guest = new GuestModel();
+
+				Console.WriteLine("What is your first name: ");
+                guest.FirstName = Console.ReadLine();
+
+            } while (moreGuestsArriving.ToLower() == "yes");
 
             Console.ReadLine();
         }
