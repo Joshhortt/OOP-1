@@ -21,12 +21,12 @@ namespace ConsoleUI
         {
             GetGuestInformation();
 
-			PrintGuestInformation(); // Calling new method
+			PrintGuestInformation(); 
 
 			Console.ReadLine();
         }
 
-		private static void PrintGuestInformation()  // New method
+		private static void PrintGuestInformation()  
 		{
 			foreach (GuestModel guest in guests)
 			{
@@ -40,14 +40,12 @@ namespace ConsoleUI
 
 			do
 			{
-				GuestModel guest = new GuestModel();
-
-				// Refactor more by changing Console.Writeline / Console.ReadLine to private method we created below
-				guest.FirstName = GetInfoFromConsole("What is your first name: ");
-				//GetInfoFromConsole("What is your last name: ");
-				//guest.LastName = Console.ReadLine();
-				guest.LastName = GetInfoFromConsole("What is your last name: ");
-				guest.MessageToHost = GetInfoFromConsole("What message would you like to say your host: ");
+				GuestModel guest = new GuestModel
+				{
+					FirstName = GetInfoFromConsole("What is your first name: "),
+					LastName = GetInfoFromConsole("What is your last name: "),
+					MessageToHost = GetInfoFromConsole("What message would you like to say your host: ")
+				};
 				moreGuestsArriving = GetInfoFromConsole("Are more guests coming (yes/no): ");
 
 				guests.Add(guest); 
@@ -58,9 +56,8 @@ namespace ConsoleUI
 		}
 		private static string GetInfoFromConsole(string message)
 		{
-			string output = "";
 			Console.Write(message);
-			output = Console.ReadLine();
+			string output = Console.ReadLine();
 
 			return output;
 		}
