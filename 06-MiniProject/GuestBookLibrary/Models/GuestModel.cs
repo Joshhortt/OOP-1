@@ -9,7 +9,6 @@ namespace GuestBookLibrary.Models
 {
     public class GuestModel
     {
-		// Blueprint for one Guest
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
 		public string MessageToHost { get; set; }
