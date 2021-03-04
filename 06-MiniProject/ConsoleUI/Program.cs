@@ -28,6 +28,19 @@ namespace ConsoleUI
 				Console.WriteLine("What is your first name: ");
                 guest.FirstName = Console.ReadLine();
 
+                Console.WriteLine("What is your last name: ");
+                guest.LastName = Console.ReadLine();
+
+				Console.Write("What message would you like to say your host: ");
+                guest.MessageToHost = Console.ReadLine();
+
+                Console.Write("Are more guests coming (yes/no): ");
+				moreGuestsArriving = Console.ReadLine();
+
+                guests.Add(guest);
+
+                Console.Clear();
+
             } while (moreGuestsArriving.ToLower() == "yes");
 
             Console.ReadLine();
